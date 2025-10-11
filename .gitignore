@@ -1,0 +1,24 @@
+# Node
+node_modules
+.vite
+dist
+.DS_Store
+.env*
+# Java/Gradle
+.gradle
+/build
+/out
+server/out
+server/gradle-8.10.2/
+server/gradle/
+server/gradlew
+server/gradlew.bat
+!gradle/wrapper/gradle-wrapper.jar
+# IDE
+.idea
+.vscode
+.project
+.classpath
+.settings
+# Logs
+*.log
