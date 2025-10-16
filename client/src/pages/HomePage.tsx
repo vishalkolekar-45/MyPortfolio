@@ -16,17 +16,42 @@ export default function HomePage() {
 
   return (
     <section>
-      <h1>Hi, I'm Your Name</h1>
-      <p>Full‑stack developer specializing in React and Java.</p>
-      <div style={{ marginTop: 16 }}>
-        <h3>Featured Projects (from API)</h3>
+      <div className="hero-section">
+        <div className="hero-content">
+          <h1>Hi, I'm Vishal Kolekar</h1>
+          <p className="hero-subtitle">
+            Full‑stack developer specializing in React, TypeScript, and Java.<br />
+            Passionate about building beautiful, performant web apps and scalable backend systems.
+          </p>
+          <div className="skills-container">
+            <span className="skill-badge">React</span>
+            <span className="skill-badge">TypeScript</span>
+            <span className="skill-badge">Java</span>
+            <span className="skill-badge">Node.js</span>
+            <span className="skill-badge">Vite</span>
+            <span className="skill-badge">CSS</span>
+            <span className="skill-badge">Spring Boot</span>
+            <span className="skill-badge">SQL</span>
+          </div>
+          <a href="/resume" className="hero-cta">View Resume</a>
+        </div>
+    <div className="hero-image" aria-hidden="true"></div>
+      </div>
+      <div style={{ marginTop: 32 }}>
+        <h2>About Me</h2>
+        <p>
+          I love solving real-world problems with code and collaborating with creative teams. My experience spans frontend and backend development, UI/UX design, and cloud deployment. I enjoy learning new technologies and sharing knowledge with the community.
+        </p>
+      </div>
+      <div style={{ marginTop: 32 }}>
+        <h2>Featured Projects</h2>
         {error && <p style={{ color: 'crimson' }}>Failed to load: {error}</p>}
         {!projects && !error && <p>Loading…</p>}
         {projects && (
           <ul>
             {projects.map((p) => (
               <li key={p.id}>
-                {p.name} — {p.stack.join(', ')}
+                <strong>{p.name}</strong> — <span>{p.stack.join(', ')}</span>
               </li>
             ))}
           </ul>

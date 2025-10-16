@@ -1,4 +1,320 @@
-section { max-width: 800px; margin: 0 auto; }
-section h1, section h2 { margin-bottom: 0.5rem; }
-section p { color: #444; }
+/* Page sections */
+section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
 
+section h1, section h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+section h1::after, section h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  height: 4px;
+  width: 60px;
+  background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+  border-radius: 2px;
+}
+
+section p {
+  color: var(--text-color);
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Grid layouts */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Skill badges */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.skill-badge {
+  background: var(--card-bg);
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skill-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent-color);
+}
+
+/* Timeline for experience */
+.timeline {
+  position: relative;
+  margin: 3rem 0;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-color), var(--secondary-color));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.5rem;
+  top: 1.5rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--accent-color);
+  border: 3px solid var(--bg-color);
+}
+
+/* Contact form */
+.contact-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--card-bg);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--accent-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.2);
+}
+
+.submit-button {
+  background: var(--button-bg);
+  color: var(--button-text);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+  box-shadow: 0 4px 24px var(--accent-color);
+}
+.hero-section {
+  display: block;
+  margin: 2rem 0 4rem 0;
+  padding: 2rem 0;
+}
+
+.hero-content {
+  width: 100%;
+  position: relative; /* make pseudo-element positioning relative to this */
+  overflow: hidden;
+  padding: 2rem 0; /* less horizontal padding when full width */
+}
+
+/* Normalize hero text */
+
+
+/* place background image behind the text area */
+.hero-content::before {
+  display: none;
+}
+
+/* keep the actual text and controls above the background */
+.hero-content > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-image {
+  display: none !important;
+}
+
+/* dark overlay for readability */
+.hero-image::after {
+  display: none;
+}
+
+/* content inside hero should sit above the background */
+.hero-section .hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin: 1.5rem 0;
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+
+
+.hero-cta {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hero-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1024px) {
+  .hero-section {
+    flex-direction: column-reverse;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .hero-image img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .hero-image::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  section h1::after, section h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.section-description {
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  text-align: center;
+  color: var(--text-color);
+  opacity: 0.9;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  section {
+    padding: 2rem 1rem;
+  }
+  
+  section h1, section h2 {
+    font-size: 2rem;
+  }
+  
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .timeline {
+    padding-left: 1.5rem;
+  }
+  
+  .timeline-item::before {
+    left: -2rem;
+  }
+}
